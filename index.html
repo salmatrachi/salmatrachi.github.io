@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salma Trachi — Portfolio BUT SD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── HERO ── */
+  .hero {
+    min-height: calc(100vh - 62px);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 4rem 2rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: rgba(208,212,157,0.3); pointer-events: none;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -100px; left: -100px;
+    width: 460px; height: 460px; border-radius: 50%;
+    background: rgba(208,212,157,0.18); pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--avocado-mid);
+    margin-bottom: 1.25rem; font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--text-dark); margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--avocado); }
+  .hero-sub {
+    font-size: 1rem; color: var(--text-muted);
+    max-width: 480px; line-height: 1.75; margin-bottom: 2.5rem;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .hero-scroll {
+    margin-top: 3rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: var(--text-muted); font-size: 0.76rem; letter-spacing: 0.1em;
+    text-transform: uppercase; animation: bounce 2s infinite;
+  }
+  .hero-scroll svg { width: 18px; height: 18px; stroke: var(--avocado); fill: none; stroke-width: 2; stroke-linecap: round; }
+  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .stat-item {
+    padding: 2rem 3rem; text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 300; color: var(--avocado);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<nav id="main-nav"></nav>
+
+<main>
+  <section class="hero">
+    <p class="hero-eyebrow">BUT Science des Données · IUT de Poitiers, campus de Niort</p>
+    <h1>Bienvenue sur<br>mon <em>portfolio</em></h1>
+    <p class="hero-sub">Étudiante en 1ère année de BUT Science des Données. Retrouvez ici mes projets SAE, mon parcours et mes réflexions sur l'année écoulée.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="projects.html">Voir mes projets →</a>
+      <a class="btn btn-outline" href="about.html">À propos de moi</a>
+    </div>
+    <div class="hero-scroll">
+      <span>Défiler</span>
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-num">13</div>
+      <div class="stat-label">Projets SAE</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Semestres</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Compétences</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Année de BUT</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Portfolio réalisé dans le cadre du BUT Science des Données · IUT de Poitiers, campus de Niort · 2024–2025
+</footer>
+
+<script src="css/nav.js"></script>
+</body>
+</html>
