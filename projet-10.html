@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Régression sur des données réelles — Salma Trachi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .projet-hero {
+    background: var(--avocado);
+    padding: 3rem 2rem 2.5rem;
+  }
+  .projet-hero-inner { max-width: 860px; margin: 0 auto; }
+  .projet-breadcrumb {
+    font-size: 0.78rem; color: rgba(232,235,199,0.6);
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.4rem;
+  }
+  .projet-breadcrumb a { color: rgba(232,235,199,0.6); text-decoration: none; }
+  .projet-breadcrumb a:hover { color: var(--mist-light); }
+  .projet-meta {
+    font-size: 0.72rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(232,235,199,0.6);
+    font-weight: 500; margin-bottom: 0.75rem;
+  }
+  .projet-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    font-weight: 300; color: var(--mist-light);
+    line-height: 1.25; margin-bottom: 1rem;
+  }
+  .projet-hero-sub { font-size: 0.9rem; color: rgba(232,235,199,0.75); line-height: 1.65; max-width: 640px; }
+  .projet-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .btn-back {
+    padding: 0.6rem 1.25rem; border-radius: 30px;
+    background: rgba(208,212,157,0.2); color: var(--mist-light);
+    font-family: 'DM Sans', sans-serif; font-size: 0.83rem; font-weight: 500;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;
+    transition: background 0.2s; border: 1px solid rgba(208,212,157,0.3);
+  }
+  .btn-back:hover { background: rgba(208,212,157,0.35); }
+  .btn-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .projet-body { max-width: 860px; margin: 0 auto; padding: 2.5rem 2rem 3rem; }
+  .projet-section { margin-bottom: 2.25rem; }
+  .projet-section-label {
+    font-size: 0.72rem; letter-spacing: 0.12em;
+    text-transform: uppercase; font-weight: 500;
+    color: var(--avocado); margin-bottom: 0.85rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .projet-section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .projet-section p { font-size: 0.93rem; color: var(--text-mid); line-height: 1.85; }
+  .skills-list { list-style: none; padding: 0; columns: 2; gap: 1.5rem; }
+  @media (max-width: 560px) { .skills-list { columns: 1; } }
+  .skills-list li {
+    font-size: 0.88rem; color: var(--text-mid); line-height: 1.6;
+    padding-left: 1rem; position: relative; margin-bottom: 0.4rem; break-inside: avoid;
+  }
+  .skills-list li::before { content: '–'; position: absolute; left: 0; color: var(--avocado); }
+  .tags-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+  .team-badge {
+    display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px;
+    font-size: 0.75rem; font-weight: 500;
+    background: rgba(78,84,36,0.1); color: var(--avocado-dark);
+    border: 1px solid rgba(78,84,36,0.18);
+  }
+  .projet-img {
+    width: 100%; border-radius: var(--radius); margin-bottom: 1.5rem;
+    border: 1px solid var(--border); display: block;
+  }
+  .dl-zone {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.5rem 2rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    margin-top: 2rem;
+  }
+  .dl-zone-text { font-size: 0.88rem; color: var(--text-muted); }
+  .dl-zone-text strong { display: block; color: var(--text-dark); font-size: 0.95rem; margin-bottom: 0.2rem; }
+
+  /* Impression pour export PDF */
+  @media print {
+    nav, footer, .projet-actions, .dl-zone, .mobile-menu { display: none !important; }
+    .projet-hero { background: #4E5424 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-size: 12pt; }
+    .projet-body { padding: 1rem 0; }
+    .skills-list { columns: 2; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu"></div>
+<nav id="main-nav"></nav>
+
+<div class="projet-hero">
+  <div class="projet-hero-inner">
+    <div class="projet-breadcrumb">
+      <a href="../projects.html">← Projets</a>
+      <span>/</span>
+      <span>Compétence 2 · S2</span>
+    </div>
+    <div class="projet-meta">Compétence 2 · S2</div>
+    <h1>Régression sur des données réelles</h1>
+    <p class="projet-hero-sub">Modèle de régression linéaire prédisant le prix de logements à Niort sous R.</p>
+    <div class="projet-actions">
+      <a class="btn-back" href="../projects.html">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Retour aux projets
+      </a>
+      <a class="btn-download" href="../pdf/projet_9.pdf" download>Télécharger le rapport (PDF) <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<div class="projet-body">
+  
+
+  <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center; margin-bottom:2rem;">
+    <span class="team-badge">👥 Travail en binôme</span>
+    <span class="project-tag">Régression</span> <span class="project-tag">R</span> <span class="project-tag">Immobilier</span>
+  </div>
+
+  <div class="projet-section">
+    <div class="projet-section-label">Description du projet</div>
+    <p>Dans cette SAE, nous avons travaillé sur des données réelles concernant des ventes de maisons et d'appartements dans les communes de l'agglomération de Niort depuis 2021. L'objectif était d'utiliser ces informations pour comprendre les facteurs influençant le prix d'un bien immobilier et prédire le prix de logements dont la valeur n'était pas connue.</p>
+  </div>
+
+  <div class="projet-section">
+    <div class="projet-section-label">Compétences mobilisées</div>
+    <ul class="skills-list">
+      <li>Explorer et analyser un jeu de données</li>
+      <li>Réaliser des graphiques pour mettre en évidence des tendances</li>
+      <li>Identifier des groupes ou segments de données pertinents</li>
+      <li>Construire et évaluer un modèle de régression linéaire</li>
+      <li>Utiliser le langage R pour traiter des données et produire des prédictions</li>
+      <li>Interpréter les résultats et porter un regard critique sur la qualité du modèle</li>
+    </ul>
+  </div>
+
+  <div class="projet-section">
+    <div class="projet-section-label">Mon travail</div>
+    <p>J'ai exploré sous R un jeu de données réelles portant sur des ventes de logements dans l'agglomération de Niort depuis 2021, en réalisant des graphiques permettant de repérer des tendances et d'identifier des groupes de logements aux caractéristiques proches. J'ai ensuite construit des modèles de régression linéaire afin d'estimer le prix de vente d'un logement à partir de ses caractéristiques.</p>
+  </div>
+
+  <div class="dl-zone">
+    <div class="dl-zone-text">
+      <strong>Fichier du projet</strong>
+      Ce projet est disponible en téléchargement au format PDF.
+    </div>
+    <a class="btn-download" href="../pdf/projet_9.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger le rapport (PDF)
+    </a>
+  </div>
+</div>
+
+<footer>
+  Portfolio réalisé dans le cadre du BUT Science des Données · IUT de Poitiers, campus de Niort · 2024–2025
+</footer>
+
+<script src="../css/nav.js"></script>
+</body>
+</html>
